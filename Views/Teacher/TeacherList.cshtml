@@ -1,0 +1,51 @@
+﻿@model List<Group03_PS.Models.Teacher>;
+
+
+@{
+    ViewData["Title"] = "Teacher List";
+}
+
+
+<br />
+<br />
+<div class="container">
+
+    <a class="btn btn-success" asp-controller="Teacher" asp-action="Add" role="button">Add New Teacher</a>
+
+    <div style="margin:20px">
+
+    </div>
+    <table class="table table-bordered">
+        <thead style="background:#435d7d;color:white">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>Teacher Info</th>
+                <th>Payment History</th>
+                <th>New Payment</th>
+
+            </tr>
+        </thead>
+        <tbody style="background:#ecf0f1">
+
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.TeacherId</td>
+                    <td>@x.TeacherName</td>
+
+                    <td><a class="btn btn-warning" role="button" asp-controller="Teacher" asp-action="Edit" asp-route-TeacherId="@x.TeacherId">Edit</a></td>
+                    <td><a class="btn btn-danger" role="button" asp-controller="Teacher" asp-action="Delect" asp-route-TeacherId="@x.TeacherId" onclick="alert('You Want to Delect The Document!')">Delete</a></td>
+                    <td><a  class="btn btn-info" role="button" asp-controller="Teacher" asp-action="Details" asp-route-TeacherId="@x.TeacherId">Info</a></td>
+                    <td><a class="btn btn-primary" role="button" asp-controller="TeacherPayment" asp-action="Teacher" asp-route-TeacherId="@x.TeacherId">Details</a></td>
+                    <td> <a class="btn btn-success" asp-controller="TeacherPayment" asp-action="TeacherPaymentAdd" asp-route-TeacherId="@x.TeacherId" role="button">New Payment</a> </td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+

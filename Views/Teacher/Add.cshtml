@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["title"] = "New Teacher";
+}
+
+@model Group03_PS.Models.Teacher;
+
+
+
+
+
+
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form asp-action="Add" asp-controller="Teacher" method="post" role="form">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Teacher</h4>
+                @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>*@
+                <a asp-action="TeacherList" asp-controller="Teacher" class="close" data-dismiss="modal" aria-hidden="true">x</a>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-group">
+                    <label asp-for="TeacherId">Teacher Id</label>
+                    <input asp-for="TeacherId" class="form-control" placeholder="Enter Teacher ID" name="TeacherId" required="required">
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="TeacherName">Teacher Name</label>
+                    <input asp-for="TeacherName" class="form-control"  placeholder="Enter Teacher Name" name="TeacherName" required="required">
+
+                </div>
+
+              
+                <div class="form-group">
+
+                    <label asp-for="Address">Address</label>
+                    <input asp-for="Address" class="form-control" placeholder="Enter Address" name="Address" required="required">
+                </div>
+                <div class="form-group">
+
+                    <label asp-for="Phone">Phone</label>
+                    <input asp-for="Phone" class="form-control" placeholder="Enter Phone Number" name="Phone" required="required">
+                </div>
+            
+
+            </div>
+
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-success" value="Add">
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,120 @@
+﻿@model List<Group03_PS.Models.StudentPayment>
+
+
+@{ 
+    ViewData["title"] = "Payment Deatils";
+}
+
+
+@{
+    Int64 Total = 0;
+    
+}
+
+
+
+<div class="container">
+
+
+    @foreach (var y in Model)
+    {
+        if (y.Id > 0)
+        {
+            
+            <div style="margin-top:60px">
+                    <h2>Payment Status Of @y.Id</h2>
+                </div>
+            <a class="btn btn-success" asp-controller="Payment" asp-action="StudentPaymentAdd" asp-route-Id="@y.Id" role="button">New Payment</a>
+            break;
+        }
+    }
+
+    
+
+
+    <div style="margin:5px">
+
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr  style="background:#435d7d;color:white">
+
+                <th>Edit</th>
+                <th>Date</th>
+                <th>Admission Fee</th>
+                <th>Month Name</th>
+                <th>Tuition Fee </th>
+                <th>Re-Addmission</th>
+                <th>Yearly Charge</th>
+                <th>Examination</th>
+                <th>Advance Payment</th>
+                <th>Lab</th>
+                <th>Id-Card</th>
+                <th>Fine</th>
+                <th>Other</th>
+                <th style="background:#435d7d; color: #fff;">Total</th>
+
+
+            </tr>
+        </thead>
+        <tbody >
+            @foreach (var x in Model)
+            {
+                <tr>
+                    @{
+                        Int64 sum = 0;
+
+                    }
+
+                    <td >
+                        <div class="btn btn-warning" role="button">  @Html.ActionLink("Edit", "StudentPaymentEdit", new { Id = x.Id, Date = x.Date, No = x.No })</div>
+                      
+                    </td>
+                    <td>@x.Date</td>
+                    <td>@x.AdmissionFee</td>
+                    <td>@x.MonthName</td>
+                    <td>@x.TuitionFee</td>
+                    <td>@x.ReAdmission</td>
+                    <td>@x.YearlyCharge</td>
+                    <td>@x.Examination</td>
+                    <td>@x.AdvancePayment</td>
+                    <td>@x.Lab</td>
+                    <td>@x.IdCard</td>
+                    <td>@x.Fine</td>
+                    <td>@x.Other</td>
+                    <td style="background:#435d7d; color: #fff;">
+                        @(sum += @x.AdmissionFee + @x.TuitionFee + @x.ReAdmission + @x.YearlyCharge + @x.Examination + @x.AdvancePayment + @x.Lab + @x.IdCard +
+                                                                @x.Fine + @x.Other )
+                        @{
+                            Total += sum;
+                        }
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+    <div style="margin-top:20px;float:right;background:#e74c3c;color:white">
+        <h3>Net Payment =  @Total  TK Only</h3>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

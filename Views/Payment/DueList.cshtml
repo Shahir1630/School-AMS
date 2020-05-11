@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Group03_PS.Models.Due>
+
+
+
+<div class="container">
+
+    <h2>@ViewData["MonthName"]</h2> 
+
+    <table class="table table-bordered">
+        <thead style="background:#435d7d;color:white">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+
+                <th>Class</th>
+
+
+            </tr>
+        </thead>
+
+        <tbody style="background:#ecf0f1">
+
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.student.Id</td>
+                    <td>@x.student.Name</td>
+                    <td>@x.student.Class</td>
+
+                </tr>
+
+            }
+
+        </tbody>
+
+
+    </table>
+
+
+
+
+
+</div>

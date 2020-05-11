@@ -1,0 +1,108 @@
+﻿@model List<Group03_PS.Models.TeacherPayment>
+
+
+@{
+    ViewData["title"] = "Payment Deatils";
+}
+
+
+@{
+    Int64 Total = 0;
+
+}
+
+
+
+<div class="container">
+
+
+    @foreach (var y in Model)
+    {
+        if (y.TeacherId > 0)
+        {
+
+            <div style="margin-top:60px">
+                <h2>Payment Status Of @y.TeacherId</h2>
+            </div>
+            <a class="btn btn-success" asp-controller="TeacherPayment" asp-action="TeacherPaymentAdd" asp-route-TeacherId="@y.TeacherId" role="button">New Payment</a>
+            break;
+        }
+    }
+
+
+
+
+    <div style="margin:5px">
+
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr style="background:#435d7d;color:white">
+
+                <th>Edit</th>
+                <th>Date</th>
+                <th>Month Name</th>
+                <th>Salary </th>
+            
+                <th>Fine</th>
+               
+                <th style="background:#435d7d; color: #fff;">Total</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    @{
+                        Int64 sum = 0;
+
+                    }
+
+                    <td>
+                        <div class="btn btn-warning" role="button">  @Html.ActionLink("Edit", "TeacherPaymentEdit", new { TeacherId = x.TeacherId, Date = x.Date, No = x.No })</div>
+
+                    </td>
+                    <td>@x.Date</td>
+                  
+                    <td>@x.MonthName</td>
+                   
+                    <td>@x.Salary</td>
+                    <td>@x.Fine</td>
+                   
+                    <td style="background:#435d7d; color: #fff;">
+                        @(sum += @x.Salary - @x.Fine  )
+                        @{
+                            Total += sum;
+                        }
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+    <div style="margin-top:20px;float:right;background:#e74c3c;color:white">
+        <h3>Net Payment =  @Total  TK Only</h3>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

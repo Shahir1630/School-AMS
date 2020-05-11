@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Edit Student";
+}
+
+@model Group03_PS.Models.Student;
+
+
+
+
+
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form asp-action="Edit" asp-controller="Student" method="post" role="form">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit Student</h4>
+                @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>*@
+                <a asp-action="StudentList" asp-controller="Student" class="close" data-dismiss="modal" aria-hidden="true">x</a>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-group">
+                    <label asp-for="Id">Id</label>
+                    <input asp-for="Id" class="form-control" placeholder="Enter Student ID" name="Id" required="required">
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name">Name</label>
+                    <input asp-for="Name" class="form-control" name="Name" required="required">
+
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Class">Class</label>
+                    <input asp-for="Class" class="form-control" placeholder="Enter Class Number" name="Class" required="required">
+
+                </div>
+                <div class="form-group">
+
+                    <label asp-for="FatherName">Father's Name </label>
+                    <input type="text" asp-for="FatherName" class="form-control" placeholder="Enter Father's Name" name="FatherName" required="required">
+                </div>
+                <div class="form-group">
+
+                    <label asp-for="MotherName">Mother's Name</label>
+                    <input asp-for="MotherName" class="form-control" placeholder="Enter Mother's Name" name="MotherName" required="required">
+                </div>
+                <div class="form-group">
+
+                    <label asp-for="Address">Address</label>
+                    <input asp-for="Address" class="form-control" placeholder="Enter Address" name="Address" required="required">
+                </div>
+                <div class="form-group">
+
+                    <label asp-for="Phone">Phone</label>
+                    <input asp-for="Phone" class="form-control" placeholder="Enter Comment About Student" name="Phone" required="required">
+                </div>
+                  <div class="form-group">
+
+                      <label asp-for="Comment">Comment</label>
+                    <input asp-for="Comment" class="form-control" placeholder="Enter Comment About Student" name="Comment" required="required">
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-success" value="Edit">
+            </div>
+        </form>
+    </div>
+</div>

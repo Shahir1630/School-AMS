@@ -1,0 +1,32 @@
+﻿@model Group03_PS.Models.Student;
+
+
+@{
+    ViewData["Title"] = "Student Details";
+}
+
+
+<br />
+<br />
+<div class="btn">
+    
+    <a class="btn btn-info" role="button" asp-controller="Student" asp-action="ExportToPDF" asp-route-Id="@Model.Id">Export To PDF</a>
+</div>
+
+    <div class="container">
+
+
+        <h2>Id             : @Model.Id</h2>
+        <h2>Name           : @Model.Name</h2>
+        <h2>Class          : @Model.Class</h2>
+        <h2>Phone          : @Model.Phone</h2>
+        <h2>Father's Name  : @Model.FatherName</h2>
+        <h2>Mother's Name  : @Model.MotherName</h2>
+        <h2>Address        : @Model.Address</h2>
+        <h2>Comment        : @Model.Comment</h2>
+
+
+    </div>
+
+
+

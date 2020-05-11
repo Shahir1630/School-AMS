@@ -1,0 +1,56 @@
+﻿@model List<Group03_PS.Models.Student>;
+
+
+@{
+    ViewData["Title"] = "Student List";
+}
+
+
+<br />
+<br />
+<div class="container">
+
+    <a class="btn btn-success" asp-controller="Student" asp-action="Add" role="button">Add New Student</a>
+
+    <div style="margin:20px">
+
+    </div>
+    <table class="table table-bordered" >
+        <thead  style="background:#435d7d;color:white">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                @*<th>Class</th>
+        <th>Phone</th>*@
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>Details</th>
+
+                <th>Payment History</th>
+                <th>New Payment</th>
+
+            </tr>
+        </thead>
+        <tbody style="background:#ecf0f1">
+
+            @foreach (var x in Model)
+            {
+            <tr>
+                <td>@x.Id</td>
+                @*<td><a asp-controller="Student" asp-action="Info" asp-route-Id="@x.Id">@x.Name</a></td>*@
+                <td>@x.Name</td>
+                @*<td>@x.Class</td>
+                 <td>@x.Phone</td>*@
+                <td><a class="btn btn-warning" role="button" asp-controller="Student" asp-action="Edit" asp-route-Id="@x.Id" asp-route-Name="@x.Name" asp-route-class="@x.Class" asp-route-Phone="@x.Phone">Edit</a></td>
+                <td ><a class="btn btn-danger" role="button" asp-controller="Student" asp-action="Delect" asp-route-Id="@x.Id" onclick="alert('You Want to Delect The Document!')">Delete</a></td>
+                <td><a class="btn btn-info" role="button" asp-controller="Student" asp-action="Details" asp-route-Id="@x.Id">Details</a></td>
+                @*<td><a asp-controller="Payment" asp-action="StudentPaymentAdd" asp-route-Id="@x.Id">New Payment</a></td>*@
+                <td><a class="btn btn-primary" role="button" asp-controller="Payment" asp-action="Students" asp-route-Id="@x.Id">Details</a></td>
+                <td> <a class="btn btn-success" asp-controller="Payment" asp-action="StudentPaymentAdd" asp-route-Id="@x.Id" role="button">New Payment</a> </td>
+
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

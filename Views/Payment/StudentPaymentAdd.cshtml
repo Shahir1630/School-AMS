@@ -1,0 +1,107 @@
+﻿@model Group03_PS.Models.StudentPayment
+
+
+@{
+    ViewData["title"] = "New Payment";
+}
+
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form asp-action="StudentPaymentAdd" asp-controller="Payment" method="post" role="form">
+            <div class="modal-header">
+                <h4 class="modal-title">Add New Payment</h4>
+                @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>*@
+                <a asp-action="StudentList" asp-controller="Payment" class="close" data-dismiss="modal" aria-hidden="true">x</a>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-group">
+                    <label asp-for="Date">Date</label>
+                    <input asp-for="Date" class="form-control"  name="Date" required="required">
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Id">Id</label>
+                    <input asp-for="Id" class="form-control" name="Id" required="required">
+
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="AdmissionFee">AdmissionFee</label>
+                    <input asp-for="AdmissionFee" class="form-control" placeholder="Enter Student Name" name="AdmissionFee" required="required">
+
+                </div>
+                <div class="form-group">
+                    <select class="form-control" asp-for="MonthName">
+                        <option class="hidden" selected="" disabled="">Please select one</option>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">	March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
+                </div>
+                <div class="form-group">
+
+                    <label asp-for="TuitionFee">TuitionFee</label>
+                    <input asp-for="TuitionFee" class="form-control" placeholder="Enter Student's Phone" name="TuitionFee" required="required">
+                </div>
+                <div class="form-group">
+
+                    <label asp-for="ReAdmission">Re-Admission</label>
+                    <input asp-for="ReAdmission" class="form-control" placeholder="Enter Re-Admission" name="ReAdmission" required="required">
+                </div>
+                <div class="form-group">
+
+                    <label asp-for="YearlyCharge">Yearly Charge</label>
+                    <input asp-for="YearlyCharge" class="form-control" placeholder="Enter Yearly Charge" name="YearlyCharge" required="required">
+                </div>
+                <div class="form-group">
+
+                    <label asp-for="Examination">Examination Fee</label>
+                    <input asp-for="Examination" class="form-control" placeholder="Enter Examination Fee" name="Examination" required="required">
+                </div>
+                <div class="form-group">
+
+                    <label asp-for="AdvancePayment">Advance Payment</label>
+                    <input asp-for="AdvancePayment" class="form-control" placeholder="Enter Advance Payment" name="AdvancePayment" required="required">
+                </div>
+                <div class="form-group">
+
+                    <label asp-for="Lab">Lab</label>
+                    <input asp-for="Lab" class="form-control" placeholder="Enter Lab Fee" name="Lab" required="required">
+                </div>
+                <div class="form-group">
+
+                    <label asp-for="IdCard">IdCard</label>
+                    <input asp-for="IdCard" class="form-control" placeholder="Enter IdCard Fee" name="IdCard" required="required">
+                </div>
+                <div class="form-group">
+
+                    <label asp-for="Fine">Fine</label>
+                    <input asp-for="Fine" class="form-control" placeholder="Enter Fine" name="Fine" required="required">
+                </div>
+                <div class="form-group">
+
+                    <label asp-for="Other">Other</label>
+                    <input asp-for="Other" class="form-control" placeholder="Enter Other Fee" name="Other" required="required">
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-success" value="Add">
+            </div>
+        </form>
+    </div>
+</div>
+
+
